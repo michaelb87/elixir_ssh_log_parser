@@ -1,6 +1,6 @@
-defmodule SshParserTest do
+defmodule SshParserSuccessTest do
   use ExUnit.Case
-  doctest SshParser
+  doctest SshParserSuccess
 
   test "success pw auth" do
     msg = "Accepted password for one from 127.0.0.1 port 54564 ssh2"
