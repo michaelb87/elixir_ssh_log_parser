@@ -5,7 +5,6 @@ defmodule SshParserSessionClose do
     Documentation for `SshParserSessionClose`.
   
     """
-    # pam_unix\\(sshd:session\\): session closed for user %{USERNAME:sshd_user
 
     parser =
       ignore(string("pam_unix(sshd:session): session closed for user "))
