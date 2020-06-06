@@ -6,11 +6,6 @@ defmodule SshParserSuccess do
   
     """
   
-    # '(?<sshd_result>Accepted) %{WORD:sshd_auth_type} for %{USERNAME:sshd_user} from %{IP:sshd_client_ip} port %{NUMBER:sshd_port} %{WORD:sshd_protocol}(: )?(?:%{GREEDYDATA:sshd_cipher})' // overwrite
-  
-    # 'Accepted publickey for pi from 193.154.87.64 port 57032 ssh2: RSA ef:93:98:3b:f3:48:09:75:c5:57:5a:05:0f:7b:4e:4a'
-    # 'Accepted password for one from 127.0.0.1 port 54564 ssh2'
-  
     auth_type = ascii_string([?a..?z], min: 1)
     username = ascii_string([?a..?z, ?A..?Z, ?0..?9, ?., ?-, ?_], min: 1)
   
