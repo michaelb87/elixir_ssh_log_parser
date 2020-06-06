@@ -26,6 +26,8 @@ defmodule SshParserConnectionClose do
           port: port,
         }
       end
+
     defparsec(:parse, parser, debug: true)
+    
   end
   

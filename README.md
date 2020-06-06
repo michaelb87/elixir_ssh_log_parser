@@ -8,3 +8,4 @@ Currently supported:
   - User Fail
   - Disconnect
   - Session Close
+  - Connection Close
