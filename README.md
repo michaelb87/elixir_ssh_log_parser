@@ -14,7 +14,7 @@ Currently supported:
 
 `mix run lib/benchmark.exs`
 
-Operating System: Linux
+`Operating System: Linux
 CPU Information: Intel(R) Core(TM) i5-4300U CPU @ 1.90GHz
 Number of Available Cores: 4
 Available memory: 11.43 GB
@@ -40,4 +40,4 @@ session_close            898.66 K        1.11 μs  ±2777.60%        0.86 μs   
 disconnect               811.46 K        1.23 μs  ±2485.94%        1.03 μs        2.42 μs
 received_disconnect      163.87 K        6.10 μs   ±277.37%        5.13 μs       14.94 μs
 user_fail                118.91 K        8.41 μs   ±198.29%        7.31 μs       22.64 μs
-accepted                  78.89 K       12.68 μs    ±66.21%       11.44 μs       31.47 μs
+accepted                  78.89 K       12.68 μs    ±66.21%       11.44 μs       31.47 μs`
