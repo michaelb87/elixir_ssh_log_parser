@@ -6,6 +6,7 @@ defmodule SshParser do
     # end
     
     modules = [
+      {:user_fail, SshParserUserFail},
       {:parser_success, SshParserSuccess},
     ]
 

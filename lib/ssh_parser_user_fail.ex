@@ -1,32 +1,27 @@
-defmodule SshParserSuccess do
+defmodule SshParserUserFail do
     import NimbleParsec
+
+    @space 0x0020
   
     @moduledoc """
-    Documentation for `SshParserSuccess`.
+    Documentation for `SshParserUserFail`.
   
     """
-    
-    algo_name = utf8_string([?a..?z, ?A..?Z, ?-], min: 1) 
-  
-    cipher = utf8_string([?a..?z, ?A..?Z, ?0..?9, ?:, ?/, ?+, ?\\, ?=, ?., ?,], min: 4) 
-  
+
+    # 'Failed %{NOTSPACE:auth_method} for invalid user %{USERNAME:sshd_invalid_user} from %{IP:sshd_client_ip} port %{NUMBER:sshd_port} %{WORD:sshd_protocol}'
+
   
     parser =
-      ignore(string("Accepted "))
+      ignore(string("Failed "))
       |> concat(CommonParser.auth_type())
-      |> ignore(string(" for "))
+      |> ignore(string(" for invalid user "))
       |> concat(CommonParser.username()) 
       |> ignore(string(" from "))
       |> concat(CommonParser.ip_v4())
       |> ignore(string(" port "))
       |> concat(CommonParser.port()) 
-      |> ignore(string(" "))
+      |> ignore(utf8_char([@space]))
       |> concat(CommonParser.protocol())
-      |> optional(ignore(string(": ")))
-      |> optional(ignore(string(" ")))
-      |> optional(algo_name)
-      |> optional(ignore(string(" ")))
-      |> optional(cipher)
       |> reduce({:to_map, []})
     
     defp to_map(list) do
@@ -36,8 +31,6 @@ defmodule SshParserSuccess do
         ip: Enum.at(list, 2),
         port: Enum.at(list, 3),
         protocol: Enum.at(list, 4),
-        algorithm_name: Enum.at(list, 5),
-        cipher: Enum.at(list, 6)
       }
     end
     defparsec(:parse, parser, debug: true)
