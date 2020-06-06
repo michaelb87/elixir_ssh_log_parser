@@ -2,6 +2,7 @@ defmodule SshParser do
   def parse(str) do
     
     modules = [
+      {:session_close, SshParserSessionClose},
       {:user_fail, SshParserUserFail},
       {:success, SshParserSuccess},
       {:disconnect, SshParserDisconnect},

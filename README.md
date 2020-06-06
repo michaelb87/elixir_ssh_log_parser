@@ -7,3 +7,4 @@ Currently supported:
   - Success
   - User Fail
   - Disconnect
+  - Session Close
