@@ -32,4 +32,18 @@ defmodule SshParserUserFailTest do
                }
              }
   end
+
+  test "failed user" do
+    msg = "Failed password for root from 23.233.109.49 port 39253 ssh2"
+
+    assert SshParser.parse(msg) ==
+             {:user_fail,
+              %{
+                auth_type: "password",
+                ip: "23.233.109.49",
+                port: 39253,
+                protocol: "ssh2",
+                username: "root"
+              }}
+  end
 end
