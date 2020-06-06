@@ -3,7 +3,8 @@ defmodule SshParser do
     
     modules = [
       {:user_fail, SshParserUserFail},
-      {:parser_success, SshParserSuccess},
+      {:success, SshParserSuccess},
+      {:disconnect, SshParserDisconnect},
     ]
 
     eval_modules(modules, str)

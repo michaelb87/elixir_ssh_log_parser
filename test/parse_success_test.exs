@@ -6,7 +6,7 @@ defmodule SshParserSuccessTest do
     msg = "Accepted password for one from 127.0.0.1 port 54564 ssh2"
 
     assert SshParser.parse(msg) ==
-             {:parser_success,
+             {:success,
               %{
                 algorithm_name: nil,
                 auth_type: "password",
@@ -23,7 +23,7 @@ defmodule SshParserSuccessTest do
       "Accepted publickey for pi from 193.154.87.64 port 57032 ssh2: RSA ef:93:98:4b:f3:48:09:75:c5:57:5a:05:0f:7b:4e:4a"
 
     assert SshParser.parse(msg) ==
-             {:parser_success,
+             {:success,
               %{
                 algorithm_name: "RSA",
                 auth_type: "publickey",
