@@ -1,9 +1,5 @@
 defmodule SshParser do
   def parse(str) do
-    # cond do
-    #   {:ok, [res], _, _, _, _} = SshParserSuccess.parse(str) -> {:parser_success, res}
-    #   true -> {:error, "Could not parse message."} # none of the parsers matched
-    # end
     
     modules = [
       {:user_fail, SshParserUserFail},
