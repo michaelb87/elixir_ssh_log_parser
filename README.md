@@ -9,3 +9,7 @@ Currently supported:
   - Disconnect
   - Session Close
   - Connection Close
+
+## Benchmarks
+
+`mix run lib/benchmark.exs`
